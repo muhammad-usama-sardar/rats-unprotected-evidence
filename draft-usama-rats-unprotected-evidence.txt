@@ -1,0 +1,147 @@
+
+
+
+
+RATS Working Group                                       M. Usama Sardar
+Internet-Draft                                                TU Dresden
+Updates: 9334 (if approved)                             20 December 2024
+Intended status: Informational                                          
+Expires: 23 June 2025
+
+
+Using Conveyance Protocol for Unprotected Evidence in RATS Architecture
+              draft-usama-rats-unprotected-evidence-latest
+
+Abstract
+
+   This document provides corrections to RFC9334.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-usama-rats-unprotected-
+   evidence/.
+
+   Discussion of this document takes place on the RATS Working Group
+   mailing list (mailto:rats@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/rats/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/rats/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/muhammad-usama-sardar/rats-unprotected-evidence.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 23 June 2025.
+
+Copyright Notice
+
+   Copyright (c) 2024 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+   2.  Conventions and Definitions
+   3.  Corrections
+   4.  Security Considerations
+   5.  IANA Considerations
+   6.  References
+     6.1.  Normative References
+     6.2.  Informative References
+   Author's Address
+
+1.  Introduction
+
+   RFC9334 presents the RATS architecture.  However, some parts of the
+   specification contain errors that may lead to misinterpretations and
+   even insecure implementations.  This document provides corrections to
+   RFC9334.
+
+2.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
+   capitals, as shown here.
+
+3.  Corrections
+
+   Section 7.4 of [RFC9334] has:
+
+   |  A conveyance protocol that provides authentication and integrity
+   |  protection can be used to convey Evidence that is otherwise
+   |  unprotected (e.g., not signed).
+
+   Using a conveyance protocol that provides authentication and
+   integrity protection, such as TLS 1.3 [RFC8446], to convey Evidence
+   that is otherwise unprotected (e.g., not signed) undermines all
+   security of remote attestation.  Essentially, this breaks up the
+   chain up to the root of trust.  Effectively, remote attestation
+   provides no protection in this case and the security guarantees are
+   limited to those of the conveyance protocol only.  In order to
+   benefit from remote attestation, it is recommended that Evidence MUST
+   be protected using dedicated keys chaining back to the root of trust.
+
+4.  Security Considerations
+
+   All of this document is about security considerations.
+
+5.  IANA Considerations
+
+   This document has no IANA actions.
+
+6.  References
+
+6.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/rfc/rfc2119>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/rfc/rfc8174>.
+
+   [RFC9334]  Birkholz, H., Thaler, D., Richardson, M., Smith, N., and
+              W. Pan, "Remote ATtestation procedureS (RATS)
+              Architecture", RFC 9334, DOI 10.17487/RFC9334, January
+              2023, <https://www.rfc-editor.org/rfc/rfc9334>.
+
+6.2.  Informative References
+
+   [RFC8446]  Rescorla, E., "The Transport Layer Security (TLS) Protocol
+              Version 1.3", RFC 8446, DOI 10.17487/RFC8446, August 2018,
+              <https://www.rfc-editor.org/rfc/rfc8446>.
+
+Author's Address
+
+   Muhammad Usama Sardar
+   TU Dresden
+   Email: muhammad_usama.sardar@tu-dresden.de
