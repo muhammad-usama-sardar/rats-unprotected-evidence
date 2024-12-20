@@ -10,16 +10,16 @@ number:
 date:
 consensus: true
 v: 3
-area: Security
-workgroup: RATS Working Group
+area: ""
+workgroup: "Remote ATtestation ProcedureS"
 keyword:
  - attestation
  - RATS
 venue:
-  group: RATS
-  type: Working Group
-  mail: rats@ietf.org
-  github: muhammad-usama-sardar/rats-unprotected-evidence
+  group: "Remote ATtestation ProcedureS"
+  type: ""
+  mail: "rats@ietf.org"
+  github: "muhammad-usama-sardar/rats-unprotected-evidence"
 
 author:
  -
